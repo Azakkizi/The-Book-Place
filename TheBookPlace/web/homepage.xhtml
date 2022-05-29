@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head> 
+        <title>Book Place</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+
+    <h:body>
+     <div style="padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;">
+         
+         
+         
+        <nav class="navbar navbar-expand-lg  static-top">
+                <a class="navbar-brand" href="#">
+                    <h:link outcome="homepage.xhtml">
+                        <h:graphicImage library="img" name="bp-logo.png" style="height: 50px"/>
+                    </h:link>
+                    
+                </a>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <h:outputLink class="nav nav-link" value="homepage.xhtml">Home Page</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="profile.xhtml">Profile</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="aboutUs.xhtml">About</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="index.xhtml">Log Out</h:outputLink>
+
+                        </li>
+                        <li class="nav-item">
+                            <h:dataTable value="#{bookSiteBean.getProfile()}" var="variable">
+                                <h:column>
+                            <h:outputLink class="nav" value="profile.xhtml">
+                                <h:graphicImage name="#{variable.avatar}" library="avatar" style="width: 50px; height: 50px;">
+                                </h:graphicImage>
+                            </h:outputLink>
+                                </h:column>
+                            </h:dataTable>
+                                
+                            
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+         
+         
+         
+        <div class="container home-container">
+
+
+
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <form class="card">
+                        <div class="card-body row no-gutters align-items-center">
+                            <h:form><h:outputText value="Search Books"/>
+                                <h:inputText style="width: 80%;" class="form-control form-control-sm form-control-borderless"
+                                         value="#{bookSiteBean.searchedBook}" required="true" requiredMessage="Please enter the name of the book"/>
+                             
+                            <h:commandButton style="border:none; margin: 0px;" class="button" value="Search" action="searchbook.xhtml">
+                            </h:commandButton>
+                        </h:form>
+                            <!--end of col-->
+                        </div>
+                    </form>
+                </div>
+                <!--end of col-->
+            </div>
+
+
+
+            <div class="row justify-content-center" id="row" style="text-align:center; padding:100px;">
+                <div class="col-md-6">
+                    <h6>List all the books in the archive</h6>
+                    <h:form>
+                        <h:commandButton class="button" value="All Books" action="allbooks.xhtml"><f:ajax render="@form"/></h:commandButton>
+                    </h:form>
+
+                </div>
+                <div class="col-md-6">
+                    <h6>Add new books and help us grow!</h6>
+                    <h:form>
+                        <h:commandButton class="button" value="Add Book" action="addbook.xhtml"></h:commandButton>  
+                    </h:form>
+                </div>
+
+            </div>
+
+            <div class="home-titles"><h5>Highest Rated Books</h5></div>
+            <div class="row justify-content-center">
+
+                
+                <h:dataTable value="#{bookSiteBean.highestRatedBook(1)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                            <h6>#{variable.title} (#{bookSiteBean.highestRate(1)} <span class="star">★</span>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                 <h:dataTable value="#{bookSiteBean.highestRatedBook(2)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.highestRate(2)} <span class="star">★</span>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                 <h:dataTable value="#{bookSiteBean.highestRatedBook(3)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.highestRate(3)} <span class="star">★</span>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                 <h:dataTable value="#{bookSiteBean.highestRatedBook(4)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.highestRate(4)} <span class="star">★</span>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                
+                
+            </div>
+            <div class="home-titles" style="margin-top:100px;"><h5>Most Reviewed Books</h5></div>
+            <div class="row justify-content-center">
+
+                
+                
+                               
+                <h:dataTable value="#{bookSiteBean.mostReviewedBook(1)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                            <h6>#{variable.title} (#{bookSiteBean.reviewCount(1)} <img src="resources/img/comment.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostReviewedBook(2)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.reviewCount(2)} <img src="resources/img/comment.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostReviewedBook(3)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.reviewCount(3)} <img src="resources/img/comment.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostReviewedBook(4)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.reviewCount(4)} <img src="resources/img/comment.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                
+                
+            </div>
+            <div class="home-titles" style="margin-top:100px;"><h5>Most Rated Books</h5></div>
+            <div class="row justify-content-center">
+
+                
+                
+                <h:dataTable value="#{bookSiteBean.mostRatedBook(1)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.ratingCount(1)} <img src="resources/img/like.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostRatedBook(2)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.ratingCount(2)} <img src="resources/img/like.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostRatedBook(3)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.ratingCount(3)} <img src="resources/img/like.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                <h:dataTable value="#{bookSiteBean.mostRatedBook(4)}" var="variable" style="margin-left:40px;">
+                    <h:column>
+                        <center>
+                        <h6>#{variable.title} (#{bookSiteBean.ratingCount(4)} <img src="resources/img/like.png" width="19px"></img>)</h6>
+                        <h:graphicImage name="#{variable.cover}" library="img" style=" height:300px; margin-bottom: 5px;"/>
+                        <h:form>
+                            <h:commandButton style="border:none;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form></center>
+                    </h:column>
+                </h:dataTable>
+                
+                
+            </div>    
+
+           
+        </div>
+</div>
+    </h:body></html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>All Books</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>The Book Place</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+    </h:head>
+    <h:body>
+        <div style="padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;">
+         <nav class="navbar navbar-expand-lg  static-top">
+                <a class="navbar-brand" href="#">
+                    <h:link outcome="homepage.xhtml">
+                        <h:graphicImage library="img" name="bp-logo.png" style="height: 50px"/>
+                    </h:link>
+                    
+                </a>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <h:outputLink class="nav nav-link" value="homepage.xhtml">Home Page</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="profil.xhtml">Profile</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="aboutUs.xhtml">About</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="index.xhtml">Log Out</h:outputLink>
+
+                        </li>
+                        <li class="nav-item">
+                            <h:dataTable value="#{bookSiteBean.getProfile()}" var="variable">
+                                <h:column>
+                            <h:outputLink class="nav" value="profile.xhtml">
+                                <h:graphicImage name="#{variable.avatar}" library="avatar" style="width: 50px; height: 50px;">
+                                </h:graphicImage>
+                            </h:outputLink>
+                                </h:column>
+                            </h:dataTable>
+                                
+                            
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+         
+         
+         
+        <div class="container home-container">
+            <p class="home-titles">All Books</p>
+            <div class="tablo">
+                <div style="display: block;">
+<h:dataTable value="#{bookSiteBean.getAllBooks()}" var="variable">
+            <h:column>
+                    <ul class="guiz-awards-row guiz-awards-row-even">
+                        <li>
+                            <h:column>
+                        <h:graphicImage name="#{variable.cover}" library="img" style="width:150px;height:auto; margin-bottom:0px;margin-top:0px;padding:0px;"/>
+                        </h:column>
+                        </li>
+                        <li class="guiz-awards-title"> <div class="mycomments"><h4><strong>#{variable.title}</strong></h4></div>
+                            <div class="guiz-awards-subtitle"> #{variable.author}</div>
+                            <div class="guiz-awards-subtitle"> #{variable.genre}</div><br/>
+                            <div style="font-family: 'Roboto'; font-size: 13px; font-style: italic;"> #{variable.summary}</div>
+                        
+                        <h:form>
+                            <h:commandButton style="margin-top: 15px;" class="button" value="View the Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form>
+                        </li>
+                    </ul>
+            </h:column>
+</h:dataTable>
+                </div>
+            </div>
+
+        </div></div>
+    </h:body>
+</html>

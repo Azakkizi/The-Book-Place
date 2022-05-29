@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head> 
+        <title>Book Place</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+
+    <h:body>
+     <div style="padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;">
+         
+         
+         
+        <nav class="navbar navbar-expand-lg  static-top">
+                <a class="navbar-brand" href="#">
+                    <h:link outcome="homepage.xhtml">
+                        <h:graphicImage library="img" name="bp-logo.png" style="height: 50px"/>
+                    </h:link>
+                    
+                </a>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <h:outputLink class="nav nav-link" value="homepage.xhtml">Home Page</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="profile.xhtml">Profile</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="aboutUs.xhtml">About</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="index.xhtml">Log Out</h:outputLink>
+
+                        </li>
+                        <li class="nav-item">
+                            <h:dataTable value="#{bookSiteBean.getProfile()}" var="variable">
+                                <h:column>
+                            <h:outputLink class="nav" value="profile.xhtml">
+                                <h:graphicImage name="#{variable.avatar}" library="avatar" style="width: 50px; height: 50px;">
+                                </h:graphicImage>
+                            </h:outputLink>
+                                </h:column>
+                            </h:dataTable>
+                                
+                            
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+         
+         
+         
+        <div class="container home-container" style="padding: 100px;">
+
+            
+<div class="row">
+    <div class="col">
+        <img src="resources/img/pet.jpg" width="100%"></img>
+    </div>
+    <div class="col" style="text-align: center;">
+
+            <div class="about-us">About Us</div>
+
+            <p style="padding-bottom: 100px; padding-top: 30px;">Istanbul University Cerrahpasa<br></br>Programming Applications <br></br>2020-2021 Spring Term <br></br>Midterm Project<br></br>Book Review Website</p>
+            
+            <div class="row">
+            
+                <div class="col-sm" style="">
+            <div class="subtitle">Damla DALKILIÇ</div>
+            <div class="subtitle">1306191435</div>
+                </div>
+                
+                <div class="col-sm" style="text-align: center;">
+                    <div class="subtitle">Emre <br></br> KARACA</div>
+            <div class="subtitle">1306130076</div>
+                </div>
+                
+                <div class="col-sm" style="text-align: center;">
+            <div class="subtitle">Betül AZAKOĞLU</div>
+            <div class="subtitle">1306190054</div>
+                </div>
+
+
+            </div>
+
+</div>  </div>             
+
+           
+        </div>
+</div>
+    </h:body></html>

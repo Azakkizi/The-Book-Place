@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Search Book</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <div style="padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;">
+        <nav class="navbar navbar-expand-lg  static-top">
+                <a class="navbar-brand" href="#">
+                    <h:link outcome="homepage.xhtml">
+                        <h:graphicImage library="img" name="bp-logo.png" style="height: 50px"/>
+                    </h:link>
+                    
+                </a>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <h:outputLink class="nav nav-link" value="homepage.xhtml">Home Page</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="profile.xhtml">Profile</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="aboutUs.xhtml">About</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="index.xhtml">Log Out</h:outputLink>
+
+                        </li>
+                        <li class="nav-item">
+                            <h:dataTable value="#{bookSiteBean.getProfile()}" var="variable">
+                                <h:column>
+                            <h:outputLink class="nav" value="profile.xhtml">
+                                <h:graphicImage name="#{variable.avatar}" library="avatar" style="width: 50px; height: 50px;">
+                                </h:graphicImage>
+                            </h:outputLink>
+                                </h:column>
+                            </h:dataTable>
+                                
+                            
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+         
+         
+         
+        <div class="container home-container">
+            
+            
+            
+            
+            
+            <h:dataTable value="#{bookSiteBean.searchBook()}" var="variable">
+            <div class="tablo">
+                <div style="background-color: #fcf9f5;">
+
+            <h:column>
+                    <ul class="guiz-awards-row guiz-awards-row-even">
+                        <li>
+                            <h:column>
+                        <h:graphicImage name="#{variable.cover}" library="img" style="width:150px;height:auto; margin-bottom:0px;margin-top:0px;padding:0px;"/>
+                        </h:column>
+                        </li>
+                        <li class="guiz-awards-title">#{variable.title}
+                            <div class="guiz-awards-subtitle">#{variable.author}</div>
+                            <div class="guiz-awards-subtitle">#{variable.genre}</div><br/>
+                        <div class="guiz-awards-subtitle">#{variable.summary}</div>
+                        
+                        <h:form>
+                            <h:commandButton style="margin-top: 15px;" class="button" value="View Book" action="book.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedBook}" value="#{variable.title}"/>
+                            </h:commandButton>
+                        </h:form>
+                        </li>
+                    </ul>
+            </h:column>
+
+                </div>
+            </div>
+</h:dataTable>
+            
+            
+            
+        </div></div>
+    </h:body>
+</html>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Book</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <div style="padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;">
+        <nav class="navbar navbar-expand-lg  static-top">
+                <a class="navbar-brand" href="#">
+                    <h:link outcome="homepage.xhtml">
+                        <h:graphicImage library="img" name="bp-logo.png" style="height: 50px"/>
+                    </h:link>
+                    
+                </a>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <h:outputLink class="nav nav-link" value="homepage.xhtml">Home Page</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="profile.xhtml">Profile</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="aboutUs.xhtml">About</h:outputLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:outputLink class="nav nav-link" value="index.xhtml">Log Out</h:outputLink>
+
+                        </li>
+                        <li class="nav-item">
+                            <h:dataTable value="#{bookSiteBean.getProfile()}" var="variable">
+                                <h:column>
+                            <h:outputLink class="nav" value="profile.xhtml">
+                                <h:graphicImage name="#{variable.avatar}" library="avatar" style="width: 50px; height: 50px;">
+                                </h:graphicImage>
+                            </h:outputLink>
+                                </h:column>
+                            </h:dataTable>
+                                
+                            
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+         
+         
+         
+        <div class="container home-container">
+
+            <div class="row section justify-content-center">
+                <h:dataTable value="#{bookSiteBean.displayBook()}" var="variable" style="border-radius:5px;">
+                    <h:column>
+                        <h:graphicImage style="padding:20px;width:auto;height:500px;" name="#{variable.cover}" library="img"/><br/>
+
+
+                    </h:column>
+                    <h:column>
+                        <div style="padding:20px;">
+                            <div class="home-titles"><h4><strong>#{variable.title}</strong></h4></div>
+                            
+                            <div class="subtitle"><span class="star">★</span> #{bookSiteBean.displayAvgRate()}/5</div>
+                            <div class="subtitle">Author: #{variable.author}</div>
+                            <div class="subtitle">Genre: #{variable.genre}</div>
+                            <br></br><br></br>
+                            <p style="font-family: 'Roboto';"><i>#{variable.summary}</i></p>
+                            
+                            
+                        </div>
+
+                    </h:column>
+
+                </h:dataTable>
+            </div>
+
+            <div class="mycomments" style="margin:40px 0 10px;"><h5>Write A Comment</h5></div>
+              <h:form>
+            <h:panelGrid columns="3" class="form comment-body comment" >
+                <h:outputText value="Rating:  &lt;br /&gt;(1 to 5)" escape="false"/>
+                <h:inputTextarea class="input text" style="float:left; border:1px solid #e5e5e5;"
+                                 requiredMessage="Rate the book" value="#{bookSiteBean.rating}" cols="5" rows="2" />
+                <h:outputText value=" "/>
+                <h:outputText value="Comment:  "/>
+                <h:inputTextarea class="input text" style="border:1px solid #e5e5e5;"
+                                 requiredMessage="Enter your comment" value="#{bookSiteBean.review}" cols="90" rows="5" />
+                <h:form style="float:right;">
+                    <h:commandButton style="max-width:70px" class="button" value="Send" action="#{bookSiteBean.review()}"/>
+        </h:form>
+            </h:panelGrid>
+              </h:form>
+            
+            
+        <div class="home-titles" style="margin:40px 0 40px 0px;"><strong>Comments</strong></div>
+            
+            <h:dataTable class="comment-body comment" value="#{bookSiteBean.booksReviews()}" var="variable" style="border-radius:5px;">
+                <h:column>
+                    <div class="comment-body comment">
+                        <div class="text">
+                            <h:form>
+                                <p style="font-size: 14px; font-weight: 900;" >User: <h:commandButton style="border: 0; background-color: transparent; font-size: 1em;margin:0px; padding:0px;"  class="link"
+                                                 value="#{variable.username}" action="otheruser.xhtml">
+                                    <f:setPropertyActionListener class="attribution" target="#{bookSiteBean.displayedProfile}"
+                                                                 value="#{variable.username}"/>
+                                </h:commandButton>
+                                         <br></br>Rating: #{variable.rating}</p>
+                                <p class="attribution" style="font-family: 'Roboto'; font-size: 13px;">#{variable.review}</p>  
+                                
+                            </h:form>
+                        </div>
+                    </div>
+                </h:column>
+            </h:dataTable>
+        </div>
+            
+    </div>
+</h:body>
+</html>
+

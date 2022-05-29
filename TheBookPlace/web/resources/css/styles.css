@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+
+
+body{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    background: #fcf9f5;
+    height: 100%;
+    background-image: url(resources/img/index-bg.png) !important;
+}
+
+.container {
+    padding-top: 60px; background-image: url(resources/img/index-bg.png) !important;
+}
+
+.nav-link {
+  padding-top: 13px;
+  font-style: 'Montserrat';
+  font-weight: 800;
+  color: #47596f;
+  text-shadow: 1px 1px 1px #1f1d22;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #54101d;
+}
+
+.navbar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    text-align:left;
+    padding: 5px;
+    max-height: 60px;
+}
+.navbutton{
+    margin-left:10px;
+    padding-left:80px;
+    outline: 0;
+    border: 0;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+.outer-container {
+    display: block; 
+    padding: 20px; 
+}
+
+.inner-container {
+    text-align: center; 
+    max-width: 700px; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
+}
+
+.home-container {
+    height: 100%;
+    background: rgb(213, 197, 174, 0.9);
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+.home-titles {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 30px;
+    color: #54101d;    
+    text-shadow: 2px 1px 1px #b18653;
+    text-transform: uppercase;
+    border-bottom: 2px solid #54101d;
+    box-shadow: 0px 2px 0px #b18653;
+}
+
+.subtitle {
+    color: #47596f;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.subtitle:hover {
+    text-decoration: none;
+}
+
+.star {
+    color: #FFFF00; 
+    text-shadow: 1px 1px 1px #222;
+    font-size: 19px;
+}
+
+.about-us {
+    margin: 50px 0px 30px 0px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 35px;
+    color: #54101d;    
+    text-shadow: 2px 1px 1px #b18653;
+    text-transform: uppercase;
+    border-bottom: 0px solid #54101d;
+    box-shadow: 0px 0px 0px #b18653;
+}
+
+.profile-container {
+    float: left;
+    width: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.avatar {
+    width: 200px; height: 200px; float: left;
+}
+
+.avatar:hover {
+    transform: rotate(360deg);
+}
+
+.username {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 20px;
+    color: #47596f; 
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    
+    text-decoration: none !important;
+}
+
+.username:hover {
+    text-decoration: none !important;
+}
+
+.mycomments {
+    margin-bottom: 5px;
+    padding:10px; 
+    color: #47596f;
+    display: block;
+    float: none;
+    border-left: 5px solid #47596f;
+    text-shadow: 1px 1px 2px #777;
+}
+
+.edit-delete {
+    border: 0;
+    background-border: 0;
+    background-color: transparent;
+    text-shadow: 1px 1px 1px #999;
+    font-size: 1em;
+    margin:0px; 
+    padding: 15px 10px 5px 10px;   
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.edit-delete:hover {
+    opacity: 0.5;
+}
+
+.link {
+    color: #c70a2e; 
+    font-weight: 900; 
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px #999;
+    transition: 0.6s;
+}
+
+.link:hover {
+    color: #47596f;
+    opacity: 0.5;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+/*.section{
+    margin-top:10px;
+    background-color: 
+}*/
+.button{
+    margin:5px;
+    outline: 0;
+    background: #47596f;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border-radius:5px;
+    text-shadow: 0px 0px 0px #1f1d22;
+    box-shadow: 0px 0px 3px #1f1d22;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #54101d !important;  
+}
+
+h1{
+    padding:20px;
+}
+#p{
+    padding:0 20 20 10px;
+    margin:10px;
+}
+
+.login-page {
+    max-width: 400px;
+    padding: 20px;
+    margin: auto;
+}
+.form {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    padding: 45px;
+    text-align: center;
+}
+.form input {
+    outline: 0;
+    background-color: #e6e6e6;
+    width: 100%;
+    border: 0;
+    margin: 10px;
+    padding: 15px;
+    border-radius:5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form .button {
+    background: #47596f;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+}
+.searchbox{
+    border:1px solid gray;
+    border-radius:5px;
+    width:100%;
+    margin-top:10px;
+    background-color: white;
+}
+.searchbox input{
+    border:none;
+    width:100%;
+    outline:none;
+}
+.box{
+    border-radius:5px;
+    background: #f90ccf4;
+    margin-top:10px;
+    padding:20px;
+}
+
+.navbar {z-index: 999;}
+
+small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+}
+
+
+.comment {
+    overflow: hidden;
+    padding: 0 0 1em;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+.comment .text {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.comment .text p:last-child {
+    margin: 0;
+}
+
+.comment .attribution {
+    margin: 0.5em 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.comments,
+.comment {
+    position: relative;
+}
+
+button, select, input {
+    font-size: 17px;
+}
+.tablo {
+    left:0; right:0;
+    top: 50px;
+    width: 100%;;
+    border-radius: 5px;
+    border-bottom:1px, solid, red;
+    overflow: hidden;
+}
+
+.guiz-awards-row {
+    margin:0;
+    padding: 10px 40px;
+    list-style: none;
+}
+.guiz-awards-row:after {
+    content: '';
+    display: table;
+    clear:both;
+}
+.guiz-awards-row-even {
+    background-color: rgba(0,0,0,0);
+    border-bottom: 2px solid rgba(84,16,29,0.5);
+    margin-bottom: 30px;
+}
+.guiz-awards-row li {
+    display:inline-block;
+    vertical-align: top;
+    float: left;
+}
+.guiz-awards-header {
+    text-align: center;
+    padding: 20px 40px;
+}
+.guiz-awards-star, .guiz-awards-track, .guiz-awards-time,
+.guiz-awards-header-star, .guiz-awards-header-track, .guiz-awards-header-time{
+    min-width: 54px;
+    text-align: center;
+    width: 16%;
+}
+.guiz-awards-title {
+    padding: 20px;
+    width: 60%;
+    min-width: 160px;
+    font-size: 18px;
+    font-weight: normal;
+    padding-top: 3px;
+}
+.guiz-awards-header-title {
+    width: 40%;
+    min-width: 160px;
+}
+.guiz-awards-subtitle {
+    color: #858585;
+    font-size: 14px;
+    font-weight: 300;
+}
+.guiz-awards-track, .guiz-awards-time {
+    width: 22%;
+    min-width: 80px;
+    font-size: 18px;
+    line-height: 45px
+}
+.guiz-awards-header-track, .guiz-awards-header-time {
+    width: 22%;
+    min-width: 80px;
+}
+.guiz-awards-track .null, .guiz-awards-time .null {
+    color:#bababa;
+}
+
+
+.guiz-awards-buttons {
+    background: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.guiz-awards-but-back {
+    display:inline-block;
+    background: none;
+    border: 1px solid #61a3e5;
+    border-radius: 21px;
+    padding: 7px 40px 7px 20px;
+    color: #61a3e5;
+    font-size: 17px;
+    cursor:pointer;
+    transition: all .3s ease;
+}
+
+.guiz-awards-but-back:hover {
+    background: #61a3e5;
+    color: #fff;
+}
+
+.guiz-awards-but-back i {
+    font-size: 26px;
+    line-height: 17px;
+    margin-right: 20px;
+    position: relative;
+    top: 2px;
+}
+
+

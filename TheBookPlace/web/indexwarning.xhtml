@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head> 
+        <title>Book Place</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <style>
+            #body{
+                padding:100px;
+                margin:auto;
+                background-image: url(resources/img/index-bg.png) !important;
+                width:100%;
+                height:100%;
+            }
+
+
+        </style>
+
+
+    </h:head>
+
+    <h:body>
+        
+                    
+        
+        <div class="outer-container" style="background-image: url(resources/img/index-bg.png) !important;">
+
+
+            <div class="container inner-container">
+                <img src="resources/img/bookplace-square.png" width="200px" style="margin-top: 50px;"></img>
+                <h1 style="color:white; padding-top:30px; font-family: 'Montserrat', monospace;">Welcome to the Book Place!</h1>
+                <p id="p" style="color:white; font-family: 'Roboto';">Sponsored by the smell of warm, rich words and very deep thoughts. You know the way you feel when you open a new book? That's how you're gonna feel browsing this website.</p>
+                                <p style="color: red;">#{bookSiteBean.warning}</p>
+                
+                
+                
+                
+                
+                
+                <div class="row">
+                    <div class="col-6">
+                        <h:form class="login-page">
+
+
+
+                            <div class="form" style="text-align:center;">
+
+                                <h:outputText style="color:white;" value="First Name"/>
+                                <h:inputText class="input" value="#{bookSiteBean.name}" required="true" requiredMessage="Please enter your name"/>
+                                <br></br>
+                                <h:outputText style="color:white;" value="Last Name"/>
+                                <h:inputText class="input" value="#{bookSiteBean.surname}" required="true" requiredMessage="Please enter your surname"/>
+                                <br></br>
+                                <h:outputText style="color:white;" value="Username"/>
+                                <h:inputText class="input" value="#{bookSiteBean.username}" required="true" requiredMessage="Please enter your username"/>
+                                <br></br>
+                                <h:outputText style="color:white;" value="Password"/>
+                                <h:inputSecret class="input" value="#{bookSiteBean.password}" required="true" requiredMessage="Please enter your password"/>
+                                <br></br>
+                                <h:commandButton class="button" style="margin-top:15px;" value="Sign In"  action="avatarselection.xhtml">
+                                <f:setPropertyActionListener target="#{bookSiteBean.displayedProfile}"
+                                                                 value="#{bookSiteBean.username}"/>
+                                </h:commandButton>
+
+                            </div>
+
+
+                        </h:form>
+                    </div>
+                    <div class="col-6">
+                        <h:form>
+
+                            <div class="login-page">
+                                <div class="form" style="text-align:center;">
+
+                                    <h:outputText style="color:white;" value="Username"/>
+                                    <h:inputText class="input" id="username" required="true" requiredMessage="Please enter your username" value="#{bookSiteBean.username}" />
+                                    <h:outputText style="color:white;" value="Password"/>
+                                    <h:inputSecret class="input" id="password" required="true" requiredMessage="Please enter your password"  value="#{bookSiteBean.password}" />
+
+                                    <h:commandButton class="button" style="margin-top:30px;" value="Log In" action="#{bookSiteBean.logIn()}">
+                                    <f:setPropertyActionListener target="#{bookSiteBean.displayedProfile}"
+                                                                 value="#{bookSiteBean.username}"/>
+                                    </h:commandButton>
+
+                                </div>
+                            </div>
+
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </h:body>
+</html>
+
+
